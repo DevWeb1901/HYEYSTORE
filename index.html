@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HEIYEY STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body{
+  font-family: Arial;
+  background: linear-gradient(to bottom,#e6f0ff,#ffffff);
+  text-align:center;
+  margin:0;
+}
+
+.banner{
+  width:100%;
+  border-radius:12px;
+}
+
+.header{
+  font-size:28px;
+  color:#0066ff;
+  font-weight:bold;
+  padding:15px;
+}
+
+.box{
+  background:white;
+  margin:15px;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+select,input,button{
+  width:90%;
+  padding:12px;
+  margin:8px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+button{
+  background:#0066ff;
+  color:white;
+  font-weight:bold;
+  border:none;
+}
+
+button:hover{
+  background:#0044aa;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ⭐ BANNER BERUBAH -->
+<img id="banner" src="banner-robux.jpg" class="banner">
+
+<div class="header">💙 HEIYEY STORE 💙</div>
+
+<div class="box">
+
+<h3>Pilih Kategori</h3>
+
+<select id="kategori" onchange="gantiBanner()">
+<option value="robux">Robux</option>
+<option value="brookhaven">Gamepass Brookhaven</option>
+<option value="mm2">Sword MM2</option>
+<option value="stk">Sword STK</option>
+</select>
+
+<h3>Pilih Produk</h3>
+
+<select id="produk">
+<option>Robux 100 — 15k</option>
+<option>Robux 200 — 30k</option>
+<option>Robux 300 — 45k</option>
+<option>Robux 1000 — 150k</option>
+</select>
+
+<h3>Username Roblox</h3>
+<input type="text" id="user" placeholder="Masukkan username">
+
+<button onclick="beli()">BELI SEKARANG</button>
+
+</div>
+
+<script>
+
+function gantiBanner(){
+  var kategori = document.getElementById("kategori").value;
+  var banner = document.getElementById("banner");
+  var produk = document.getElementById("produk");
+
+  if(kategori=="robux"){
+    banner.src="banner-robux.jpg";
+    produk.innerHTML=`
+      <option>Robux 100 — 15k</option>
+      <option>Robux 200 — 30k</option>
+      <option>Robux 300 — 45k</option>
+      <option>Robux 1000 — 150k</option>
+    `;
+  }
+
+  if(kategori=="brookhaven"){
+    banner.src="banner-brookhaven.jpg";
+    produk.innerHTML=`
+      <option>Penthouse — 25k</option>
+      <option>Music — 30k</option>
+      <option>Speed — 30k</option>
+      <option>Premium — 50k</option>
+      <option>Vehicle — 110k</option>
+      <option>VIP — 140k</option>
+    `;
+  }
+
+  if(kategori=="mm2"){
+    banner.src="banner-mm2.jpg";
+    produk.innerHTML=`
+      <option>Darkbringer — 20k</option>
+      <option>Lightbringer — 40k</option>
+      <option>Chroma Laser — 17k</option>
+      <option>Chroma Seer — 29k</option>
+      <option>Virtual — 10k</option>
+    `;
+  }
+
+  if(kategori=="stk"){
+    banner.src="banner-stk.jpg";
+    produk.innerHTML=`
+      <option>Astral — 8k</option>
+      <option>Bunnybane — 8k</option>
+      <option>Amber Riptar — 10k</option>
+      <option>Cactus — 40k</option>
+      <option>Noctis AEterna — 95k</option>
+    `;
+  }
+}
+
+function beli(){
+  var produk = document.getElementById("produk").value;
+  var user = document.getElementById("user").value;
+
+  if(user==""){
+    alert("Isi username dulu!");
+    return;
+  }
+
+  var pesan = "Halo kak, saya mau beli:\n"
+            + produk + "\n"
+            + "Username: " + user;
+
+  window.open("https://wa.me/6287897493566?text=" + encodeURIComponent(pesan));
+}
+
+</script>
+
+</body>
+</html>
